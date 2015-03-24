@@ -1,5 +1,0 @@
-train<-read.csv("train.csv")
-hist(train$Cover_Type)
-str(train)
-pairs(train)
-cor(train)
