@@ -76,6 +76,7 @@ def missing_hillshade_values(folder,input_csv,hs_dict):
 
     csvfile.close()
 
+    """
     average_diff = int(noon_3_diff/i)
 
     skiplist = list(outputvalues.keys())#update skiplist with second loop
@@ -83,7 +84,7 @@ def missing_hillshade_values(folder,input_csv,hs_dict):
         if key not in skiplist:
             outputvalues[key] = list()
             outputvalues[key].append(value[1]+average_diff)
-            
+    """        
     missingvalues = {} #id of records with missing 3pm and value to append
 
     for key, value in outputvalues.iteritems():
@@ -112,6 +113,8 @@ def write_values(folder,input_csv,output_csv,missing_dict):
                     csvwriter.writerow([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11],row[12]])
                 elif int(row[0]) in missing_keys:
                     csvwriter.writerow([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],missing_dict[int(row[0])],row[10],row[11],row[12]])
+                elif row[9] == '0':
+                    continue
                 else:
                     csvwriter.writerow([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11],row[12]])
     return
@@ -119,7 +122,7 @@ def write_values(folder,input_csv,output_csv,missing_dict):
 def main():
     folder = r'H:\DWM\Kaggle\Data'
     input_csv = r'train_reduced.csv'
-    output_csv = r'missing_hillshade.csv'
+    output_csv = r'missing_hillshade_v2.csv'
 
     hs_dict = missing_hillshade_list(folder,input_csv)
     missing_dict = missing_hillshade_values(folder,input_csv,hs_dict)
