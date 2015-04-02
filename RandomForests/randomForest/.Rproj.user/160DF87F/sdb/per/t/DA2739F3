@@ -1,0 +1,17 @@
+{
+    "contents" : "#\n# Project: Predict Bike Sharing Demand using R\n# Author : Gopinath Munisifreddy\n# Date   : Aug-18-2014\n#\n\n\n#Loading training file as well as test file - CHANGE THIS PATH APPROPRIATELY\ntrain <- read.csv(\"D:\\\\data-science\\\\bikesharing\\\\train.csv\")\ntest <- read.csv(\"D:\\\\data-science\\\\bikesharing\\\\test.csv\")\n\n#install required libraries\ninstall.packages(\"lubridate\") \ninstall.packages('randomForest')\nlibrary(lubridate)\nlibrary(randomForest)\n\n#Compute hour of the day\ntrain$hour <-hour(train$datetime)\ntest$hour <- hour(test$datetime)\n\n#Compute day of the week\ntrain$dow <- wday(train$datetime)\ntest$dow <- wday(test$datetime)\n\ntest$count<-0\n#Create a random forest\nfit <- randomForest(as.factor(Cover_Type) ~ Aspect+Slope+Horizontal_Distance_To_Hydrology+Vertical_Distance_To_Hydrology +  Horizontal_Distance_To_Roadways\t+ Hillshade_9am\t+ Hillshade_Noon + Hillshade_3pm + Horizontal_Distance_To_Fire_Points + Wilderness + Soil, data=ForestData.Train, ntree = 700, importance=TRUE)\n#Uncomment the following line if you want to see how your model plot looks like\n#varImpPlot(fit)\n\n#Predict values and save output\nPrediction <- predict(fit, test)\nsubmit <- data.frame(datetime = test$datetime, count = Prediction)\nwrite.csv(submit, file = \"random-forest.csv\", row.names = FALSE)",
+    "created" : 1428000161133.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4104779422",
+    "id" : "DA2739F3",
+    "lastKnownWriteTime" : 1428002851,
+    "path" : "C:/Dropbox/HDSDA/Kaggle/randomForest/biketutorial.r",
+    "project_path" : "biketutorial.r",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

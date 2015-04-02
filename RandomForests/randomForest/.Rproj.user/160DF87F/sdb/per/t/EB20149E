@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1427831440308.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "EB20149E",
+    "lastKnownWriteTime" : 8028075772711627845,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "ForestData",
+        "contentUrl" : "content?title=ForestData&file=dfed955203bc46b0843a235d036c692f.htm",
+        "displayedObservations" : 1000,
+        "displayedVariables" : 14,
+        "totalObservations" : 15083,
+        "variables" : 14
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

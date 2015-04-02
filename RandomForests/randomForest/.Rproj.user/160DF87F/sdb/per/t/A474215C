@@ -1,0 +1,17 @@
+{
+    "contents" : "#install.packages(\"caret\")\nlibrary(caret)\nForestData<-read.csv(\"trainnorm.csv\")\nsummary(ForestData)\nhead(ForestData)\n\nForestData$Cover_Type<-as.factor(ForestData$Cover_Type)\nForestData$Soil<-as.factor(ForestData$Soil)\nForestData$Wilderness<-as.factor(ForestData$Wilderness)\nset.seed(16)\nindex <- createDataPartition(ForestData$Id, p=.8,list=FALSE,times=1)\nhead(index)\nForestData.Train<-ForestData[index,]\nForestData.Test<-ForestData[-index,]\n#install.packages(\"randomForest\")\nlibrary(randomForest)\n?randomForest\nforest.rf1 <- randomForest(Cover_Type ~ ., data=ForestData.Train, importance=TRUE,proximity=TRUE)\n\nprint(forest.rf1)\nround(importance(forest.rf1), 2)\n\nforest.rf2 <- randomForest(Cover_Type ~ Elevation+Aspect+Slope, data=ForestData.Train, importance=TRUE,proximity=TRUE)\nprint(forest.rf2)\nround(importance(forest.rf2), 2)\n\nset.seed(123)\nforest.rf3 <- randomForest(as.factor(Cover_Type) ~ Aspect+Slope+Horizontal_Distance_To_Hydrology+Vertical_Distance_To_Hydrology +\tHorizontal_Distance_To_Roadways\t+ Hillshade_9am\t+ Hillshade_Noon + Hillshade_3pm + Horizontal_Distance_To_Fire_Points + Wilderness, data=ForestData.Train, importance=TRUE,proximity=TRUE)\nvarImpPlot(forest.rf3)\nprint(forest.rf3)\nround(importance(forest.rf3), 2)\nPrediction <- predict(forest.rf3, ForestData.Test)\nresult.rf3 <- data.frame(Id=ForestData.Test$Id, Cover_Typer=Prediction, row.names = ForestData.Test$Id)\n\n",
+    "created" : 1427826748614.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3901472378",
+    "id" : "A474215C",
+    "lastKnownWriteTime" : 1428001254,
+    "path" : "C:/Dropbox/HDSDA/Kaggle/randomForest/randomForest.r",
+    "project_path" : "randomForest.r",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

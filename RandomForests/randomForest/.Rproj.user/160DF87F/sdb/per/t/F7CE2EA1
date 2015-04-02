@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1427976619337.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "F7CE2EA1",
+    "lastKnownWriteTime" : 27866499440705583,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "result.rf3",
+        "contentUrl" : "content?title=result.rf3&file=cca5baf54d954c55840e524c03962744.htm",
+        "displayedObservations" : "1000",
+        "displayedVariables" : 2,
+        "totalObservations" : "3016",
+        "variables" : "2"
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
