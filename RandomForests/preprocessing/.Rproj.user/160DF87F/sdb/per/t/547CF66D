@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1427819640326.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "547CF66D",
+    "lastKnownWriteTime" : 7741240723082584096,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "trainnorm",
+        "contentUrl" : "content?title=trainnorm&file=3713bf76777840e38dd19e3bddc51e67.htm",
+        "displayedObservations" : 1000,
+        "displayedVariables" : 14,
+        "totalObservations" : 15083,
+        "variables" : 14
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

@@ -3,7 +3,9 @@
 import pandas
 
 # assign the csv to a dataframe
-df = pandas.read_csv("train.csv")
+df = pandas.read_csv("test.csv")
+# use the existing 'Id' column as the index
+df.set_index('Id', inplace=True)
 
 # define the new columns in the dataframe and set to 0
 df['Soil'] = 0
@@ -23,14 +25,14 @@ for i in range(1,41):
 for i in range(1,5):
     df['Wilderness'] = df['Wilderness'] + i*df['Wilderness_Area'+str(i)]
 
-# After filling in all the new columns with the returned value
-# drop all the columns that are now unnecessary 
-
 soil_type_cols = [col for col in df if 'Soil_Type' in col]
 wilderness_cols = [col for col in df if 'Wilderness_Area' in col]
 
+# After filling in all the new columns with the returned value
+# drop all the columns that are now unnecessary 
 df = df.drop(soil_type_cols+wilderness_cols, axis=1)
 
+
 # write dataframe to csv file using pandas
-df.to_csv("trainresult.csv")
+df.to_csv("testcombined.csv")
 
