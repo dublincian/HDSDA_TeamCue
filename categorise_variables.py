@@ -21,7 +21,7 @@ def soil_type(folder,input_csv,output_csv):
     with open(reduced_csv,'wb') as csvfile1:
         csvwriter = csv.writer(csvfile1,delimiter=',')
 
-        csvwriter.writerow(['Id','Elevation','Aspect','Slope','HDist_Hydrology','VDist_Hydrology','HDist_Roadways','HS_9am','HS_Noon','HS_3pm','HDist_Fire','Wilderness','Soil'])
+        csvwriter.writerow(['Id','Elevation','Aspect','Slope','HDist_Hydrology','VDist_Hydrology','HDist_Roadways','HS_9am','HS_Noon','HS_3pm','HDist_Fire','Wilderness','Soil','Cover_Type'])
         for site in input_list:
             soil = 0
             wilderness = 0
@@ -115,17 +115,17 @@ def soil_type(folder,input_csv,output_csv):
                 soil = 53
             elif site[54] == '1':
                 soil = 54
-            elif site[55] == '1':
-                soil = 55
+            #elif site[55] == '1':
+                #soil = 55
  
-            csvwriter.writerow([site[0],site[1],site[2],site[3],site[4],site[5],site[6],site[7],site[8],site[9],site[10],wilderness,soil])
+            csvwriter.writerow([site[0],site[1],site[2],site[3],site[4],site[5],site[6],site[7],site[8],site[9],site[10],wilderness,soil,site[55]])
 
     return
 
 def main():
     folder = r'H:\DWM\Kaggle\Data'
     input_csv = r'train.csv'
-    output_csv = r'train_reduced.csv'
+    output_csv = r'train_reduced_v2.csv'
 
     soil_type(folder,input_csv,output_csv)
 
