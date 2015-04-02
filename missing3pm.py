@@ -110,19 +110,19 @@ def write_values(folder,input_csv,output_csv,missing_dict):
 
             for row in csvreader:
                 if row[0] == 'Id':
-                    csvwriter.writerow([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11],row[12]])
+                    csvwriter.writerow([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11],row[12],row[13]])
                 elif int(row[0]) in missing_keys:
-                    csvwriter.writerow([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],missing_dict[int(row[0])],row[10],row[11],row[12]])
+                    csvwriter.writerow([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],missing_dict[int(row[0])],row[10],row[11],row[12],row[13]])
                 elif row[9] == '0':
                     continue
                 else:
-                    csvwriter.writerow([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11],row[12]])
+                    csvwriter.writerow([row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11],row[12],row[13]])
     return
 
 def main():
     folder = r'H:\DWM\Kaggle\Data'
-    input_csv = r'train_reduced.csv'
-    output_csv = r'missing_hillshade_v2.csv'
+    input_csv = r'train_reduced_v2.csv'
+    output_csv = r'missing_hillshade_v3.csv'
 
     hs_dict = missing_hillshade_list(folder,input_csv)
     missing_dict = missing_hillshade_values(folder,input_csv,hs_dict)
